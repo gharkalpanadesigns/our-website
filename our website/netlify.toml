@@ -1,0 +1,3 @@
+[build]
+publish = "our website"
+# build = ""   # no build step for static HTML
