@@ -6,32 +6,26 @@
     <title>CivilTechies & Gharkalpana Designs</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .slider {
-            position: relative;
-            max-width: 800px;
-            margin: auto;
-            overflow: hidden;
-        }
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slides > * {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
+        /* ---- Project Gallery (Manual Only, No Auto Movement) ---- */
+        .slider { position: relative; max-width: 900px; margin: 20px auto; overflow: hidden; }
+        .slides { position: relative; }
+        /* Show only ONE item at a time */
+        .slides > * { display: none; width: 100%; box-sizing: border-box; cursor: pointer; }
+        .slides > .active { display: block; }
+        /* Make media responsive */
+        .slides img, .slides video, .slides iframe { width: 100%; height: auto; }
+        /* Kill any external animations just in case */
+        .slider, .slides, .slides > * { animation: none !important; }
+
+        /* Prev/Next buttons */
+        .prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.55); color: #fff; border: none; padding: 10px 14px; cursor: pointer; z-index: 10; border-radius: 8px; }
         .prev { left: 10px; }
         .next { right: 10px; }
+        .prev:focus, .next:focus { outline: 2px solid #fff; }
+
+        /* Simple lightbox */
+        .lightbox { display: none; position: fixed; z-index: 1000; inset: 0; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; }
+        .lightbox img { max-width: 90%; max-height: 85vh; }
     </style>
 </head>
 <body>
@@ -71,27 +65,37 @@
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" aria-label="Project Gallery">
         <h2>Project Gallery</h2>
-        <div class="slider">
+        <div class="slider" aria-live="polite">
             <div class="slides" id="slides">
+                <!-- Images (click to open) -->
                 <img src="kitchen1st.jpeg" alt="Project 1">
                 <img src="kitchen2nd.jpeg" alt="Project 2">
                 <img src="project3.jpg" alt="Project 3">
-                <video controls>
+
+                <!-- Self-hosted MP4 videos (place the .mp4 file next to this HTML) -->
+                <video controls playsinline>
                     <source src="kitchenvideo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <video controls>
+                <video controls playsinline>
                     <source src="project-video2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-            
+
+                <!-- YouTube embed (replace YOUR_VIDEO_ID) -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            <button class="prev" type="button" aria-label="Previous" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" type="button" aria-label="Next" onclick="moveSlide(1)">&#10095;</button>
         </div>
     </section>
+
+    <!-- Lightbox for images -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Expanded project image">
+    </div>
 
     <section id="about">
         <h2>About Us</h2>
@@ -105,16 +109,58 @@
     </footer>
 
     <script>
+        // ----- Manual-only gallery: show ONE item at a time (no transforms, no auto) -----
+        const slidesEl = document.getElementById('slides');
+        const items = Array.from(slidesEl.children);
         let currentIndex = 0;
-        const slides = document.getElementById('slides');
-        const totalSlides = slides.children.length;
 
-        function moveSlide(direction) {
-            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        function show(index) {
+            if (!items.length) return;
+            // wrap index
+            currentIndex = (index + items.length) % items.length;
+            // hide all, show one
+            items.forEach((el, i) => {
+                const isActive = i === currentIndex;
+                el.classList.toggle('active', isActive);
+                // Pause any video when it is hidden
+                if (!isActive && el.tagName === 'VIDEO') {
+                    el.pause();
+                }
+            });
         }
+        function moveSlide(direction) { show(currentIndex + direction); }
+
+        // Enable click-to-open for images
+        items.forEach(el => {
+            if (el.tagName === 'IMG') {
+                el.addEventListener('click', () => openLightbox(el.src));
+            }
+        });
+
+        // Kill any rogue auto-intervals from other scripts (safety net)
+        window.addEventListener('load', () => {
+            for (let i = 0; i < 1000; i++) { clearInterval(i); clearTimeout(i); }
+            // Also force-stop CSS animations if any external CSS adds them
+            slidesEl.style.animation = 'none';
+            items.forEach(el => el.style.animation = 'none');
+            show(0);
+        });
+
+        // Lightbox helpers
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Optional keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') moveSlide(-1);
+            if (e.key === 'ArrowRight') moveSlide(1);
+            if (e.key === 'Escape') closeLightbox();
+        });
     </script>
 </body>
 </html>
-
-
