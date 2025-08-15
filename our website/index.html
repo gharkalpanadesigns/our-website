@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CivilTechies & Gharkalpana Designs</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .slider {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides > * {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
 </head>
 <body>
     <header>
@@ -46,23 +74,26 @@
     <section id="projects">
         <h2>Project Gallery</h2>
         <div class="slider">
-            <div class="slides">
-                <!-- Images -->
-                <img src="kitchen1st.jpeg" alt="Project 1">
-                <img src="kitchen2nd.jpeg" alt="Project 2">
-                <!--<img src="project3.jpg" alt="Project 3">>
-
-                <!-- Videos -->
+            <div class="slides" id="slides">
+                <img src="project1.jpg" alt="Project 1">
+                <img src="project2.jpg" alt="Project 2">
+                <img src="project3.jpg" alt="Project 3">
                 <video controls>
-                    <source src="kitchenvideo.mp4" type="video/mp4">
+                    <source src="project-video1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <video controls>
                     <source src="project-video2.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                
+                <iframe width="560" height="315" 
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                    title="YouTube video player" frameborder="0" 
+                    allowfullscreen>
+                </iframe>
             </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
     </section>
 
@@ -76,6 +107,16 @@
         <p>For inquiries or to schedule a consultation, please fill out our <a href="https://forms.gle/fqSoQjHf9wbCyToz5" target="_blank" class="form-button">Client Brief Form</a>.</p>
         <p>&copy; 2025 CivilTechies & Gharkalpana Designs. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.getElementById('slides');
+        const totalSlides = slides.children.length;
+
+        function moveSlide(direction) {
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
 </body>
 </html>
-
