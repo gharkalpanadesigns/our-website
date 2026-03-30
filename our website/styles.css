@@ -1,15 +1,16 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #F7F3E9; /* soft cream */
-    color: #2F2F2F; /* charcoal */
+    background-color: #E8DDCC; /* LOGO background */
+    color: #1F1F1F;
     margin: 0;
     padding: 0;
 }
 /* Header with logo left, text centered */
 header {
     padding: 20px;
-    background-color: #C2A75A; /* refined gold */
-    color: #ffffff;
+    background-color: #E8DDCC; /* SAME as logo bg */
+    color: #1F1F1F;
+    border-bottom: 2px solid #B8A47C;
 }
 
 .logo-container {
@@ -41,8 +42,8 @@ header {
 
 /* Navigation */
 nav {
-    background-color: #2F2F2F; /* charcoal instead of harsh gray */
-    color: white;
+    background-color: #1F1F1F;
+    color: #F9F6F0;
     padding: 10px 0;
     position: sticky;
     top: 0;
@@ -62,14 +63,14 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #F9F6F0;
     text-decoration: none;
 }
 
 /* Sections */
 section {
     padding: 40px 20px;
-    background-color: #ffffff;
+    background-color: #F9F6F0;
     margin: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -83,7 +84,7 @@ section {
 }
 
 .card {
-    background: #ffffff;
+    background: #F9F6F0;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     padding: 20px;
@@ -92,7 +93,7 @@ section {
 }
 
 .card h2 {
-    color: #BFA14A;
+    color: #B8A47C;
 }
 
 /* Project Images Slider */
@@ -123,8 +124,8 @@ section {
 
 /* Footer */
 footer {
-    background: #2F2F2F;
-    color: #F7F3E9;
+    background: #1F1F1F;
+    color: #E8DDCC;
     text-align: center;
     padding: 15px;
     font-size: 14px;
@@ -145,6 +146,7 @@ footer {
 }
 
 .form-button:hover {
-     background-color: #A88E45; /* darker gold */
+   background-color: #9C8A66;
+   color: #1F1F1F;
 
 }
