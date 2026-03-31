@@ -12,432 +12,165 @@
     --cream: #F7F3EE;
     --warm-white: #FDFAF6;
     --charcoal: #1C1C1A;
-    --warm-brown: #8B6F47;
     --gold: #C4933F;
     --gold-light: #E8C97A;
-    --sage: #7A8C6E;
     --text-muted: #6B6560;
     --border: rgba(139,111,71,0.18);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); overflow-x: hidden; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--warm-white);
-    color: var(--charcoal);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.2rem 4rem;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(253,250,246,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 600; letter-spacing: 0.02em;
-    color: var(--charcoal); text-decoration: none;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 4rem; display: flex; align-items: center; justify-content: space-between; background: rgba(253,250,246,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--charcoal); text-decoration: none; }
   .nav-logo span { color: var(--gold); }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-muted); text-decoration: none; font-weight: 400;
-    transition: color 0.2s;
-  }
+  .nav-links a { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
-    background: var(--charcoal); color: var(--cream);
-    padding: 0.6rem 1.5rem; border-radius: 2px; text-decoration: none;
-    transition: background 0.2s;
-  }
+  .nav-cta { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--charcoal); color: var(--cream); padding: 0.6rem 1.5rem; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
   .nav-cta:hover { background: var(--gold); }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-  }
-  .hero-left {
-    padding: 8rem 4rem 6rem;
-    display: flex; flex-direction: column; justify-content: center;
-    position: relative;
-  }
-  .hero-tag {
-    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-  .hero-tag::before {
-    content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
-  }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 300; line-height: 1.15;
-    color: var(--charcoal); margin-bottom: 1.5rem;
-  }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; }
+  .hero-left { padding: 8rem 4rem 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .hero-tag { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.15; color: var(--charcoal); margin-bottom: 1.5rem; }
   .hero-title em { font-style: italic; color: var(--gold); }
-  .hero-subtitle {
-    font-size: 1rem; color: var(--text-muted); line-height: 1.8;
-    max-width: 420px; margin-bottom: 2.5rem; font-weight: 300;
-  }
+  .hero-subtitle { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 420px; margin-bottom: 2.5rem; font-weight: 300; }
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--charcoal); color: var(--cream);
-    padding: 0.9rem 2rem; font-size: 0.82rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; border-radius: 2px; transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
+  .btn-primary { background: var(--charcoal); color: var(--cream); padding: 0.9rem 2rem; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
   .btn-primary:hover { background: var(--gold); }
-  .btn-ghost {
-    color: var(--charcoal); font-size: 0.82rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
-    transition: color 0.2s;
-  }
+  .btn-ghost { color: var(--charcoal); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
   .btn-ghost:hover { color: var(--gold); }
   .btn-ghost::after { content: '→'; transition: transform 0.2s; }
   .btn-ghost:hover::after { transform: translateX(4px); }
-
-  .hero-stats {
-    display: flex; gap: 2.5rem; margin-top: 3.5rem;
-    padding-top: 2.5rem; border-top: 1px solid var(--border);
-  }
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem; font-weight: 600; color: var(--charcoal);
-  }
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--charcoal); }
   .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+  .hero-right { background: var(--cream); position: relative; overflow: hidden; }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-right-overlay { position: absolute; bottom: 2rem; left: 2rem; right: 2rem; background: rgba(253,250,246,0.92); backdrop-filter: blur(8px); padding: 1.2rem 1.5rem; border-left: 3px solid var(--gold); }
+  .hero-right-overlay p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--charcoal); line-height: 1.5; }
+  .hero-right-overlay span { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.5rem; display: block; }
 
-  .hero-right {
-    background: var(--cream);
-    position: relative; overflow: hidden;
-  }
-  .hero-right img {
-    width: 100%; height: 100%; object-fit: cover;
-    display: block;
-  }
-  .hero-right-overlay {
-    position: absolute; bottom: 2rem; left: 2rem; right: 2rem;
-    background: rgba(253,250,246,0.92);
-    backdrop-filter: blur(8px);
-    padding: 1.2rem 1.5rem;
-    border-left: 3px solid var(--gold);
-  }
-  .hero-right-overlay p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; font-style: italic; color: var(--charcoal); line-height: 1.5;
-  }
-  .hero-right-overlay span {
-    font-size: 0.75rem; color: var(--text-muted);
-    letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.5rem; display: block;
-  }
-
-  /* MARQUEE */
-  .marquee-wrap {
-    background: var(--charcoal); overflow: hidden; padding: 1rem 0;
-  }
-  .marquee-track {
-    display: flex; gap: 3rem; white-space: nowrap;
-    animation: marquee 20s linear infinite;
-  }
-  .marquee-track span {
-    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); flex-shrink: 0;
-  }
+  .marquee-wrap { background: var(--charcoal); overflow: hidden; padding: 1rem 0; }
+  .marquee-track { display: flex; gap: 3rem; white-space: nowrap; animation: marquee 20s linear infinite; }
+  .marquee-track span { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); flex-shrink: 0; }
   .marquee-track span.accent { color: var(--gold-light); }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  /* SECTION BASE */
   section { padding: 7rem 4rem; }
-  .section-tag {
-    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
+  .section-tag { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
   .section-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    font-weight: 300; line-height: 1.2; color: var(--charcoal);
-  }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.2; color: var(--charcoal); }
   .section-title em { font-style: italic; color: var(--gold); }
 
-  /* STORY / ABOUT */
-  .story { background: var(--cream); }
-  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-  .story-image-wrap { position: relative; }
-  .story-image-wrap img {
-    width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
-  }
-  .story-badge {
-    position: absolute; bottom: -1.5rem; right: -1.5rem;
-    background: var(--gold); color: var(--cream);
-    padding: 1.5rem; text-align: center; width: 130px; height: 130px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    border-radius: 50%;
-  }
-  .story-badge .num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem; font-weight: 600; line-height: 1;
-  }
-  .story-badge .lbl { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; line-height: 1.3; }
-  .story-text { padding-right: 2rem; }
-  .story-text .section-title { margin-bottom: 1.5rem; }
-  .story-text p { font-size: 1rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.2rem; font-weight: 300; }
-  .story-text p strong { color: var(--charcoal); font-weight: 500; }
-  .cert-tag {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    border: 1px solid var(--border); padding: 0.5rem 1rem;
-    font-size: 0.78rem; letter-spacing: 0.06em; color: var(--text-muted);
-    margin-top: 1rem;
-  }
-  .cert-tag::before { content: '✦'; color: var(--gold); font-size: 0.7rem; }
-
-  /* SERVICES */
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 4rem; background: var(--border); }
-  .service-card {
-    background: var(--warm-white); padding: 2.5rem 2rem;
-    transition: background 0.3s;
-    position: relative; overflow: hidden;
-  }
+  .service-card { background: var(--warm-white); padding: 2.5rem 2rem; transition: background 0.3s; position: relative; overflow: hidden; }
   .service-card:hover { background: var(--cream); }
-  .service-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem; font-weight: 300; color: rgba(196,147,63,0.15);
-    line-height: 1; margin-bottom: 1rem;
-  }
-  .service-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 400; color: var(--charcoal);
-    margin-bottom: 0.75rem;
-  }
+  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(196,147,63,0.15); line-height: 1; margin-bottom: 1rem; }
+  .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; }
   .service-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; font-weight: 300; }
-  .service-card .service-line {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-    background: var(--gold); transform: scaleX(0); transition: transform 0.3s;
-    transform-origin: left;
-  }
+  .service-line { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
   .service-card:hover .service-line { transform: scaleX(1); }
 
-  /* PROCESS */
   .process { background: var(--charcoal); color: var(--cream); }
   .process .section-tag { color: var(--gold-light); }
   .process .section-tag::before { background: var(--gold-light); }
   .process .section-title { color: var(--cream); margin-bottom: 4rem; }
-  .process-steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; position: relative; }
-  .process-steps::before {
-    content: ''; position: absolute; top: 1.5rem; left: 0; right: 0; height: 1px;
-    background: rgba(255,255,255,0.1);
-  }
+  .process-steps { display: grid; grid-template-columns: repeat(6, 1fr); position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 1.5rem; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.1); }
   .process-step { padding: 0 1.5rem 0 0; }
-  .step-dot {
-    width: 12px; height: 12px; border-radius: 50%;
-    border: 2px solid var(--gold); background: var(--charcoal);
-    margin-bottom: 1.5rem; position: relative; z-index: 1;
-  }
+  .step-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--gold); background: var(--charcoal); margin-bottom: 1.5rem; position: relative; z-index: 1; }
   .process-step:first-child .step-dot { background: var(--gold); }
-  .step-label {
-    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gold-light); margin-bottom: 0.5rem;
-  }
-  .step-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; font-weight: 400; color: var(--cream);
-    margin-bottom: 0.5rem;
-  }
+  .step-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .step-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.5rem; }
   .step-desc { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.7; font-weight: 300; }
 
-  /* PRICING */
+  .gallery { background: var(--warm-white); padding-bottom: 3rem; }
+  .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+  .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4px; }
+  .gallery-item { overflow: hidden; position: relative; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .gallery-item:nth-child(1) { grid-row: span 2; min-height: 500px; }
+  .gallery-item:nth-child(2), .gallery-item:nth-child(3), .gallery-item:nth-child(4), .gallery-item:nth-child(5) { aspect-ratio: 4/3; }
+  .gallery-overlay { position: absolute; inset: 0; background: rgba(28,28,26,0); display: flex; align-items: flex-end; padding: 1rem; transition: background 0.3s; }
+  .gallery-item:hover .gallery-overlay { background: rgba(28,28,26,0.35); }
+  .gallery-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0); transition: color 0.3s; }
+  .gallery-item:hover .gallery-label { color: rgba(255,255,255,0.85); }
+  .gallery-more { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 4px; }
+  .gallery-more .gallery-item { aspect-ratio: 4/3; }
+
   .pricing { background: var(--cream); }
   .pricing-intro { max-width: 540px; margin-bottom: 4rem; }
   .pricing-intro p { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-top: 1rem; font-weight: 300; }
   .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-  .pricing-card {
-    background: var(--warm-white);
-    padding: 2rem 1.5rem;
-    border: 1px solid var(--border);
-    position: relative; transition: all 0.3s;
-  }
+  .pricing-card { background: var(--warm-white); padding: 2rem 1.5rem; border: 1px solid var(--border); position: relative; transition: all 0.3s; }
   .pricing-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-  .pricing-card.featured {
-    background: var(--charcoal); color: var(--cream);
-    border-color: var(--charcoal);
-  }
+  .pricing-card.featured { background: var(--charcoal); border-color: var(--charcoal); }
   .pricing-card.featured:hover { border-color: var(--gold); }
-  .pricing-tag {
-    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1rem;
-  }
+  .pricing-tag { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
   .pricing-card.featured .pricing-tag { color: var(--gold-light); }
-  .pricing-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 400;
-    margin-bottom: 0.5rem; color: var(--charcoal);
-  }
+  .pricing-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--charcoal); }
   .pricing-card.featured .pricing-name { color: var(--cream); }
-  .pricing-amount {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem; font-weight: 600; color: var(--gold);
-    margin-bottom: 0.25rem;
-  }
+  .pricing-amount { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--gold); margin-bottom: 0.25rem; }
   .pricing-note { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.5rem; }
   .pricing-card.featured .pricing-note { color: rgba(255,255,255,0.45); }
   .pricing-features { list-style: none; }
-  .pricing-features li {
-    font-size: 0.82rem; color: var(--text-muted); padding: 0.4rem 0;
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 0.5rem; font-weight: 300;
-  }
+  .pricing-features li { font-size: 0.82rem; color: var(--text-muted); padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; font-weight: 300; }
   .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.08); }
   .pricing-features li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; flex-shrink: 0; }
-  .featured-badge {
-    position: absolute; top: -1px; right: 1.5rem;
-    background: var(--gold); color: var(--cream);
-    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.3rem 0.75rem;
-  }
+  .featured-badge { position: absolute; top: -1px; right: 1.5rem; background: var(--gold); color: var(--cream); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.75rem; }
 
-  /* GALLERY */
-  .gallery { background: var(--warm-white); padding-bottom: 3rem; }
-  .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 4px;
-  }
-  .gallery-item { overflow: hidden; position: relative; }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
-  .gallery-item:hover img { transform: scale(1.04); }
-  .gallery-item:nth-child(1) { grid-row: span 2; aspect-ratio: unset; min-height: 500px; }
-  .gallery-item:nth-child(2), .gallery-item:nth-child(3),
-  .gallery-item:nth-child(4), .gallery-item:nth-child(5) { aspect-ratio: 4/3; }
-  .gallery-overlay {
-    position: absolute; inset: 0; background: rgba(28,28,26,0);
-    display: flex; align-items: flex-end; padding: 1rem;
-    transition: background 0.3s;
-  }
-  .gallery-item:hover .gallery-overlay { background: rgba(28,28,26,0.35); }
-  .gallery-label {
-    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0); transition: color 0.3s;
-  }
-  .gallery-item:hover .gallery-label { color: rgba(255,255,255,0.85); }
-
-  /* TRUST */
   .trust { background: var(--cream); }
   .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
   .trust-content .section-title { margin-bottom: 1.5rem; }
   .trust-content p { font-size: 1rem; color: var(--text-muted); line-height: 1.9; font-weight: 300; margin-bottom: 1rem; }
-  .trust-quote {
-    border-left: 3px solid var(--gold);
-    padding-left: 1.5rem; margin: 2rem 0;
-  }
-  .trust-quote p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-style: italic; color: var(--charcoal); line-height: 1.6;
-    margin: 0;
-  }
+  .trust-quote { border-left: 3px solid var(--gold); padding-left: 1.5rem; margin: 2rem 0; }
+  .trust-quote p { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--charcoal); line-height: 1.6; margin: 0; }
   .trust-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .metric {
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-    background: var(--warm-white);
-  }
-  .metric-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 600; color: var(--gold); line-height: 1;
-  }
+  .metric { padding: 1.5rem; border: 1px solid var(--border); background: var(--warm-white); }
+  .metric-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; color: var(--gold); line-height: 1; }
   .metric-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.4; }
+  .cert-tag { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--border); padding: 0.5rem 1rem; font-size: 0.78rem; color: var(--text-muted); margin-top: 1rem; }
+  .cert-tag::before { content: '✦'; color: var(--gold); font-size: 0.7rem; }
 
-  /* CTA */
-  .cta-section {
-    background: var(--charcoal);
-    padding: 7rem 4rem;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
-  }
+  .cta-section { background: var(--charcoal); padding: 7rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
   .cta-left .section-tag { color: var(--gold-light); }
   .cta-left .section-tag::before { background: var(--gold-light); }
   .cta-left .section-title { color: var(--cream); margin-bottom: 1.5rem; }
   .cta-left p { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; font-weight: 300; }
-  .cta-form { display: flex; flex-direction: column; gap: 1rem; }
-  .cta-form input, .cta-form textarea {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--cream); padding: 0.9rem 1rem;
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
-    outline: none; transition: border-color 0.2s; border-radius: 0;
-    width: 100%;
-  }
-  .cta-form input::placeholder, .cta-form textarea::placeholder { color: rgba(255,255,255,0.25); }
-  .cta-form input:focus, .cta-form textarea:focus { border-color: var(--gold); }
-  .cta-form textarea { min-height: 100px; resize: vertical; }
-  .cta-form .btn-submit {
-    background: var(--gold); color: var(--charcoal);
-    padding: 1rem; font-size: 0.82rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
-    transition: background 0.2s; font-weight: 500;
-  }
-  .cta-form .btn-submit:hover { background: var(--gold-light); }
   .contact-info { margin-top: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
   .contact-item { font-size: 0.82rem; color: rgba(255,255,255,0.4); display: flex; align-items: center; gap: 0.5rem; }
   .contact-item a { color: rgba(255,255,255,0.6); text-decoration: none; }
   .contact-item a:hover { color: var(--gold-light); }
+  .form-desc { font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.8; margin-bottom: 1.5rem; font-weight: 300; }
+  .form-cta-btn { display: block; text-align: center; text-decoration: none; padding: 1.1rem; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gold); color: var(--charcoal); font-weight: 500; transition: background 0.2s; font-family: 'DM Sans', sans-serif; }
+  .form-cta-btn:hover { background: var(--gold-light); }
+  .form-note { font-size: 0.75rem; color: rgba(255,255,255,0.25); margin-top: 1rem; text-align: center; }
 
-  /* FOOTER */
-  footer {
-    background: #111110; padding: 2rem 4rem;
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; color: rgba(255,255,255,0.5); text-decoration: none;
-  }
+  footer { background: #111110; padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.5); text-decoration: none; }
   .footer-logo span { color: var(--gold); }
   footer p { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .hero-left > * { animation: fadeUp 0.7s ease both; }
-  .hero-tag { animation-delay: 0.1s; }
-  .hero-title { animation-delay: 0.25s; }
-  .hero-subtitle { animation-delay: 0.4s; }
-  .hero-actions { animation-delay: 0.5s; }
-  .hero-stats { animation-delay: 0.6s; }
+  .hero-tag { animation-delay: 0.1s; } .hero-title { animation-delay: 0.25s; } .hero-subtitle { animation-delay: 0.4s; } .hero-actions { animation-delay: 0.5s; } .hero-stats { animation-delay: 0.6s; }
 
-  /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links, .nav-cta { display: none; }
+    nav { padding: 1rem 1.5rem; } .nav-links, .nav-cta { display: none; }
     section { padding: 5rem 1.5rem; }
     .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 6rem 1.5rem 3rem; }
-    .hero-right { min-height: 400px; }
-    .story-grid, .trust-grid, .cta-section { grid-template-columns: 1fr; gap: 3rem; }
-    .story-badge { right: 1rem; bottom: -1rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .pricing-grid { grid-template-columns: 1fr 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .hero-left { padding: 6rem 1.5rem 3rem; } .hero-right { min-height: 400px; }
+    .trust-grid, .cta-section { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid, .process-steps { grid-template-columns: 1fr 1fr; }
     .process-steps::before { display: none; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
     .gallery-grid { grid-template-columns: 1fr 1fr; }
     .gallery-item:nth-child(1) { grid-column: span 2; min-height: 300px; grid-row: auto; }
+    .gallery-more { grid-template-columns: repeat(2, 1fr); }
     .gallery-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .trust-metrics { grid-template-columns: 1fr 1fr; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
@@ -446,7 +179,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Ghar<span>kalpana</span></a>
   <ul class="nav-links">
@@ -459,33 +191,19 @@
   <a href="#contact" class="nav-cta">Book consultation</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-left">
     <div class="hero-tag">Dream Home Design Partnership</div>
-    <h1 class="hero-title">
-      Transform your house into your <em>reality home</em>
-    </h1>
-    <p class="hero-subtitle">
-      Certified interior designer specializing in space optimization, 3D visualization, and complete end-to-end home design — from first consultation to final execution.
-    </p>
+    <h1 class="hero-title">Transform your house into your <em>reality home</em></h1>
+    <p class="hero-subtitle">Certified interior designer specializing in space optimization, 3D visualization, and complete end-to-end home design — from first consultation to final execution.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start your project</a>
       <a href="#gallery" class="btn-ghost">View our work</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="stat-num">6+</div>
-        <div class="stat-label">Months experience</div>
-      </div>
-      <div>
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Client satisfaction</div>
-      </div>
-      <div>
-        <div class="stat-num">3D</div>
-        <div class="stat-label">Visualization included</div>
-      </div>
+      <div><div class="stat-num">6+</div><div class="stat-label">Months experience</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label">Client satisfaction</div></div>
+      <div><div class="stat-num">3D</div><div class="stat-label">Visualization included</div></div>
     </div>
   </div>
   <div class="hero-right">
@@ -497,172 +215,59 @@
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="accent">Space Optimization</span><span>✦</span>
-    <span>3D Visualization</span><span>✦</span>
-    <span class="accent">Budget Planning</span><span>✦</span>
-    <span>Contractor Management</span><span>✦</span>
-    <span class="accent">Material Selection</span><span>✦</span>
-    <span>Full Home Design</span><span>✦</span>
-    <span class="accent">Newly Wed Specialists</span><span>✦</span>
-    <span>Certified Designer</span><span>✦</span>
-    <span class="accent">Space Optimization</span><span>✦</span>
-    <span>3D Visualization</span><span>✦</span>
-    <span class="accent">Budget Planning</span><span>✦</span>
-    <span>Contractor Management</span><span>✦</span>
-    <span class="accent">Material Selection</span><span>✦</span>
-    <span>Full Home Design</span><span>✦</span>
-    <span class="accent">Newly Wed Specialists</span><span>✦</span>
-    <span>Certified Designer</span><span>✦</span>
+    <span class="accent">Space Optimization</span><span>✦</span><span>3D Visualization</span><span>✦</span><span class="accent">Budget Planning</span><span>✦</span><span>Contractor Management</span><span>✦</span><span class="accent">Material Selection</span><span>✦</span><span>Full Home Design</span><span>✦</span><span class="accent">Newly Wed Specialists</span><span>✦</span><span>Certified Designer</span><span>✦</span><span class="accent">Space Optimization</span><span>✦</span><span>3D Visualization</span><span>✦</span><span class="accent">Budget Planning</span><span>✦</span><span>Contractor Management</span><span>✦</span><span class="accent">Material Selection</span><span>✦</span><span>Full Home Design</span><span>✦</span><span class="accent">Newly Wed Specialists</span><span>✦</span><span>Certified Designer</span><span>✦</span>
   </div>
 </div>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="section-tag">What we do</div>
   <h2 class="section-title">Everything your home <em>needs</em></h2>
   <div class="services-grid">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <h3>Space Optimization</h3>
-      <p>We eliminate wasted space and maximize every square foot — making rooms feel larger, more functional, and better organized without costly extensions.</p>
-      <div class="service-line"></div>
-    </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <h3>3D Visualization</h3>
-      <p>See your redesigned home before a single wall is touched. We create detailed 3D models so you can approve every detail with complete confidence.</p>
-      <div class="service-line"></div>
-    </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <h3>Budget Planning</h3>
-      <p>We plan smartly — allocating your budget where it has maximum visual impact and cutting costs where it won't be noticed, without compromising the look.</p>
-      <div class="service-line"></div>
-    </div>
-    <div class="service-card">
-      <div class="service-num">04</div>
-      <h3>Material Selection</h3>
-      <p>From epoxy floors to micro concrete, tiles to wallpapers — we guide every material choice so you avoid costly mistakes and get the right finish every time.</p>
-      <div class="service-line"></div>
-    </div>
-    <div class="service-card">
-      <div class="service-num">05</div>
-      <h3>Contractor Management</h3>
-      <p>We handle contractors so you don't have to. Contract reading, material guidance, site visits, and quality checks — end to end execution oversight included.</p>
-      <div class="service-line"></div>
-    </div>
-    <div class="service-card">
-      <div class="service-num">06</div>
-      <h3>Full Home Design</h3>
-      <p>Single room or complete home — we take your project from first conversation all the way to a finished, beautiful space that looks exactly how you imagined it.</p>
-      <div class="service-line"></div>
-    </div>
+    <div class="service-card"><div class="service-num">01</div><h3>Space Optimization</h3><p>We eliminate wasted space and maximize every square foot — making rooms feel larger, more functional, and better organized without costly extensions.</p><div class="service-line"></div></div>
+    <div class="service-card"><div class="service-num">02</div><h3>3D Visualization</h3><p>See your redesigned home before a single wall is touched. We create detailed 3D models so you can approve every detail with complete confidence.</p><div class="service-line"></div></div>
+    <div class="service-card"><div class="service-num">03</div><h3>Budget Planning</h3><p>We plan smartly — allocating your budget where it has maximum visual impact and cutting costs where it won't be noticed, without compromising the look.</p><div class="service-line"></div></div>
+    <div class="service-card"><div class="service-num">04</div><h3>Material Selection</h3><p>From epoxy floors to micro concrete, tiles to wallpapers — we guide every material choice so you avoid costly mistakes and get the right finish every time.</p><div class="service-line"></div></div>
+    <div class="service-card"><div class="service-num">05</div><h3>Contractor Management</h3><p>We handle contractors so you don't have to. Contract reading, material guidance, site visits, and quality checks — end to end execution oversight included.</p><div class="service-line"></div></div>
+    <div class="service-card"><div class="service-num">06</div><h3>Full Home Design</h3><p>Single room or complete home — we take your project from first conversation all the way to a finished, beautiful space that looks exactly how you imagined it.</p><div class="service-line"></div></div>
   </div>
 </section>
 
-<!-- PROCESS -->
 <section id="process" class="process">
   <div class="section-tag">How we work</div>
   <h2 class="section-title">Your home, <em>step by step</em></h2>
   <div class="process-steps">
-    <div class="process-step">
-      <div class="step-dot"></div>
-      <div class="step-label">Step 01</div>
-      <div class="step-name">Discovery</div>
-      <div class="step-desc">We understand your space, requirements, lifestyle, and budget before anything else.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-dot"></div>
-      <div class="step-label">Step 02</div>
-      <div class="step-name">Space Strategy</div>
-      <div class="step-desc">We plan the optimal layout — eliminating waste, creating storage, maximizing functionality.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-dot"></div>
-      <div class="step-label">Step 03</div>
-      <div class="step-name">3D Design</div>
-      <div class="step-desc">A complete 3D model of your redesigned home so you see it before it is built.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-dot"></div>
-      <div class="step-label">Step 04</div>
-      <div class="step-name">Client Approval</div>
-      <div class="step-desc">Review, adjust, and finalize every detail until the design is exactly what you want.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-dot"></div>
-      <div class="step-label">Step 05</div>
-      <div class="step-name">Material & Budget</div>
-      <div class="step-desc">Smart material selection and budget allocation to maximize results at every price point.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-dot"></div>
-      <div class="step-label">Step 06</div>
-      <div class="step-name">Execution</div>
-      <div class="step-desc">Full contractor management and on-site oversight until your home is perfectly complete.</div>
-    </div>
+    <div class="process-step"><div class="step-dot"></div><div class="step-label">Step 01</div><div class="step-name">Discovery</div><div class="step-desc">We understand your space, requirements, lifestyle, and budget before anything else.</div></div>
+    <div class="process-step"><div class="step-dot"></div><div class="step-label">Step 02</div><div class="step-name">Space Strategy</div><div class="step-desc">We plan the optimal layout — eliminating waste, creating storage, maximizing functionality.</div></div>
+    <div class="process-step"><div class="step-dot"></div><div class="step-label">Step 03</div><div class="step-name">3D Design</div><div class="step-desc">A complete 3D model of your redesigned home so you see it before it is built.</div></div>
+    <div class="process-step"><div class="step-dot"></div><div class="step-label">Step 04</div><div class="step-name">Client Approval</div><div class="step-desc">Review, adjust, and finalize every detail until the design is exactly what you want.</div></div>
+    <div class="process-step"><div class="step-dot"></div><div class="step-label">Step 05</div><div class="step-name">Material & Budget</div><div class="step-desc">Smart material selection and budget allocation to maximize results at every price point.</div></div>
+    <div class="process-step"><div class="step-dot"></div><div class="step-label">Step 06</div><div class="step-name">Execution</div><div class="step-desc">Full contractor management and on-site oversight until your home is perfectly complete.</div></div>
   </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery" class="gallery">
   <div class="gallery-header">
-    <div>
-      <div class="section-tag">Our work</div>
-      <h2 class="section-title">Spaces we have <em>transformed</em></h2>
-    </div>
-    <a href="#contact" class="btn-ghost" style="color: var(--charcoal); text-decoration:none; font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; display:flex; align-items:center; gap:0.5rem;">
-      Start your project <span style="transition: transform 0.2s;">→</span>
-    </a>
+    <div><div class="section-tag">Our work</div><h2 class="section-title">Spaces we have <em>transformed</em></h2></div>
+    <a href="#contact" style="color:var(--charcoal);text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:0.5rem;">Start your project →</a>
   </div>
   <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/kitchen1st.jpeg" alt="Kitchen design" onerror="this.style.background='#E8C97A'">
-      <div class="gallery-overlay"><span class="gallery-label">Modular Kitchen</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/kitchen2nd.jpeg" alt="Kitchen design 2" onerror="this.style.background='#C4933F'">
-      <div class="gallery-overlay"><span class="gallery-label">Modern Kitchen</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/kitchen3.jpeg" alt="Kitchen design 3" onerror="this.style.background='#8B6F47'">
-      <div class="gallery-overlay"><span class="gallery-label">Modular Kitchen</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/kitchen4.jpeg" alt="Kitchen design 4" onerror="this.style.background='#C4933F'">
-      <div class="gallery-overlay"><span class="gallery-label">Modern Kitchen</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/kitchen5.jpeg" alt="Kitchen design 5" onerror="this.style.background='#C4933F'">
-      <div class="gallery-overlay"><span class="gallery-label">Modern Kitchen</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/kitchen6.jpeg" alt="Kitchen design 6" onerror="this.style.background='#C4933F'">
-      <div class="gallery-overlay"><span class="gallery-label">Modern Kitchen</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/kitchen7.jpeg" alt="Kitchen design 7" onerror="this.style.background='#C4933F'">
-      <div class="gallery-overlay"><span class="gallery-label">Modern Kitchen</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/kitchen8.jpeg" alt="Kitchen design 8" onerror="this.style.background='#C4933F'">
-      <div class="gallery-overlay"><span class="gallery-label">Modern Kitchen</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/wallpaper1.jpeg" alt="Wall design" onerror="this.style.background='#7A8C6E'">
-      <div class="gallery-overlay"><span class="gallery-label">Wall Treatment</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="https://gharkalpanadesigns.netlify.app/wallpaper2.jpeg" alt="Wall design 2" onerror="this.style.background='#6B6560'">
-      <div class="gallery-overlay"><span class="gallery-label">Interior Styling</span></div>
-    </div>
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/kitchen1st.jpeg" alt="Modular Kitchen"><div class="gallery-overlay"><span class="gallery-label">Modular Kitchen</span></div></div>
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/kitchen2nd.jpeg" alt="Modern Kitchen"><div class="gallery-overlay"><span class="gallery-label">Modern Kitchen</span></div></div>
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/kitchen3.jpeg" alt="Kitchen Redesign"><div class="gallery-overlay"><span class="gallery-label">Kitchen Redesign</span></div></div>
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/kitchen4.jpeg" alt="Kitchen Design"><div class="gallery-overlay"><span class="gallery-label">Kitchen Design</span></div></div>
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/kitchen5.jpeg" alt="Kitchen Design"><div class="gallery-overlay"><span class="gallery-label">Kitchen Design</span></div></div>
+  </div>
+  <div class="gallery-more">
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/kitchen6.jpeg" alt="Modern Kitchen"><div class="gallery-overlay"><span class="gallery-label">Modern Kitchen</span></div></div>
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/kitchen7.jpeg" alt="Kitchen Design"><div class="gallery-overlay"><span class="gallery-label">Kitchen Design</span></div></div>
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/kitchen8.jpeg" alt="Modern Kitchen"><div class="gallery-overlay"><span class="gallery-label">Modern Kitchen</span></div></div>
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/wallpaper1.jpeg" alt="Wall Treatment"><div class="gallery-overlay"><span class="gallery-label">Wall Treatment</span></div></div>
+    <div class="gallery-item"><img src="https://gharkalpanadesigns.netlify.app/wallpaper2.jpeg" alt="Interior Styling"><div class="gallery-overlay"><span class="gallery-label">Interior Styling</span></div></div>
   </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing" class="pricing">
   <div class="pricing-intro">
     <div class="section-tag">Investment</div>
@@ -670,63 +275,13 @@
     <p>Our design fees are completely separate from material and labour costs. You pay us for our expertise — and we make sure every rupee of your renovation budget is spent wisely.</p>
   </div>
   <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-tag">Starter</div>
-      <div class="pricing-name">Single Room</div>
-      <div class="pricing-amount">₹15K–25K</div>
-      <div class="pricing-note">Design fee only</div>
-      <ul class="pricing-features">
-        <li>Space optimization plan</li>
-        <li>3D visualization</li>
-        <li>Material guidance</li>
-        <li>1 revision round</li>
-      </ul>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-tag">Popular</div>
-      <div class="pricing-name">1BHK Home</div>
-      <div class="pricing-amount">₹40K–60K</div>
-      <div class="pricing-note">Design fee only</div>
-      <ul class="pricing-features">
-        <li>Full home layout plan</li>
-        <li>3D visualization all rooms</li>
-        <li>Budget allocation plan</li>
-        <li>Material & furniture selection</li>
-        <li>2 revision rounds</li>
-      </ul>
-    </div>
-    <div class="pricing-card featured">
-      <div class="featured-badge">Most chosen</div>
-      <div class="pricing-tag">Signature</div>
-      <div class="pricing-name">2BHK Home</div>
-      <div class="pricing-amount">₹80K–1.2L</div>
-      <div class="pricing-note">Design fee only</div>
-      <ul class="pricing-features">
-        <li>Complete home design</li>
-        <li>Full 3D visualization</li>
-        <li>Smart budget planning</li>
-        <li>Material & furniture selection</li>
-        <li>Contractor management</li>
-        <li>Site visits included</li>
-        <li>Unlimited revisions</li>
-      </ul>
-    </div>
-    <div class="pricing-card">
-      <div class="pricing-tag">Premium</div>
-      <div class="pricing-name">2BHK Luxury</div>
-      <div class="pricing-amount">₹1.5L+</div>
-      <div class="pricing-note">Design fee only</div>
-      <ul class="pricing-features">
-        <li>Everything in Signature</li>
-        <li>Premium material sourcing</li>
-        <li>Priority execution oversight</li>
-        <li>Full project management</li>
-      </ul>
-    </div>
+    <div class="pricing-card"><div class="pricing-tag">Starter</div><div class="pricing-name">Single Room</div><div class="pricing-amount">₹15K–25K</div><div class="pricing-note">Design fee only</div><ul class="pricing-features"><li>Space optimization plan</li><li>3D visualization</li><li>Material guidance</li><li>1 revision round</li></ul></div>
+    <div class="pricing-card"><div class="pricing-tag">Popular</div><div class="pricing-name">1BHK Home</div><div class="pricing-amount">₹40K–60K</div><div class="pricing-note">Design fee only</div><ul class="pricing-features"><li>Full home layout plan</li><li>3D visualization all rooms</li><li>Budget allocation plan</li><li>Material & furniture selection</li><li>2 revision rounds</li></ul></div>
+    <div class="pricing-card featured"><div class="featured-badge">Most chosen</div><div class="pricing-tag">Signature</div><div class="pricing-name">2BHK Home</div><div class="pricing-amount">₹80K–1.2L</div><div class="pricing-note">Design fee only</div><ul class="pricing-features"><li>Complete home design</li><li>Full 3D visualization</li><li>Smart budget planning</li><li>Material & furniture selection</li><li>Contractor management</li><li>Site visits included</li><li>Unlimited revisions</li></ul></div>
+    <div class="pricing-card"><div class="pricing-tag">Premium</div><div class="pricing-name">2BHK Luxury</div><div class="pricing-amount">₹1.5L+</div><div class="pricing-note">Design fee only</div><ul class="pricing-features"><li>Everything in Signature</li><li>Premium material sourcing</li><li>Priority execution oversight</li><li>Full project management</li></ul></div>
   </div>
 </section>
 
-<!-- ABOUT / TRUST -->
 <section id="about" class="trust">
   <div class="trust-grid">
     <div class="trust-content">
@@ -734,33 +289,18 @@
       <h2 class="section-title">I designed my own home. <em>I know exactly what you are facing.</em></h2>
       <p>Most designers learn from textbooks. I learned by doing — designing my own home from scratch, fighting every budget battle, dealing with every contractor problem, and making every difficult decision you are about to make.</p>
       <p>That lived experience is what I bring to every client project. I don't just give you a beautiful design — I guide you through the entire process so you avoid every costly mistake I have already learned from.</p>
-      <div class="trust-quote">
-        <p>"You should not do work you are not specialized in. Call the expert, let them do their job perfectly — and get the result you deserve."</p>
-      </div>
+      <div class="trust-quote"><p>"You should not do work you are not specialized in. Call the expert, let them do their job perfectly — and get the result you deserve."</p></div>
       <div class="cert-tag">Certified — Coloraza Design School</div>
     </div>
     <div class="trust-metrics">
-      <div class="metric">
-        <div class="metric-num">99%</div>
-        <div class="metric-label">Of DIY home designers make costly mistakes</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">₹1–2L</div>
-        <div class="metric-label">Average cost of wrong material & contractor choices</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">3D</div>
-        <div class="metric-label">Every project visualized before a single wall is touched</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">0</div>
-        <div class="metric-label">Surprises — you approve everything before we start</div>
-      </div>
+      <div class="metric"><div class="metric-num">99%</div><div class="metric-label">Of DIY home designers make costly mistakes</div></div>
+      <div class="metric"><div class="metric-num">₹1–2L</div><div class="metric-label">Average cost of wrong material & contractor choices</div></div>
+      <div class="metric"><div class="metric-num">3D</div><div class="metric-label">Every project visualized before a single wall is touched</div></div>
+      <div class="metric"><div class="metric-num">0</div><div class="metric-label">Surprises — you approve everything before we start</div></div>
     </div>
   </div>
 </section>
 
-<!-- CTA / CONTACT -->
 <div id="contact" class="cta-section">
   <div class="cta-left">
     <div class="section-tag">Get started</div>
@@ -772,49 +312,25 @@
     </div>
   </div>
   <div>
-    <form class="cta-form" onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Your name" required>
-      <input type="tel" placeholder="Your phone number" required>
-      <input type="text" placeholder="Your location / city">
-      <input type="text" placeholder="Type of project (1BHK, 2BHK, single room...)">
-      <textarea placeholder="Tell us about your home and what you want to achieve..."></textarea>
-      <button type="submit" class="btn-submit">Send enquiry →</button>
-    </form>
+    <p class="form-desc">Click below to fill out our quick client brief form. It takes less than 2 minutes and helps us understand exactly what you need before we call you.</p>
+    <a href="https://docs.google.com/forms/d/1oQOW4n8D5VN8cbWjgzFY960IlqlNM_HSLuLHmMIJNa0/viewform" target="_blank" class="form-cta-btn">Fill out client brief form →</a>
+    <p class="form-note">Opens in a new tab — takes less than 2 minutes</p>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">Ghar<span>kalpana</span> Designs</a>
   <p>© 2026 Gharkalpana Designs. All rights reserved.</p>
 </footer>
 
 <script>
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
-  btn.textContent = 'Enquiry sent! We will call you soon ✦';
-  btn.style.background = '#7A8C6E';
-  setTimeout(() => {
-    btn.textContent = 'Send enquiry →';
-    btn.style.background = '';
-    e.target.reset();
-  }, 4000);
-}
-
-// Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
-    }
+    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
   });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.service-card, .pricing-card, .process-step, .metric').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
+  el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
