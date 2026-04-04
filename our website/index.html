@@ -39,10 +39,11 @@
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* MOBILE MENU DRAWER */
-  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--warm-white); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--warm-white); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 1.8rem; overflow-y: auto; padding: 5rem 2rem 2rem; }
   .mobile-menu.open { display: flex; }
   .mobile-menu a { font-size: 1.4rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 300; }
   .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .mobile-ebook-link { font-size: 1.4rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 300; }
   .mobile-menu .mobile-cta { background: var(--charcoal); color: var(--cream) !important; padding: 1rem 2.5rem; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem !important; cursor: pointer; }
 
   /* HERO */
@@ -193,7 +194,7 @@
   .popup-close:hover { background: var(--border); }
 
   /* MOBILE STICKY BOTTOM CTA */
-  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 0.75rem 1rem; background: var(--charcoal); display: flex; gap: 0.75rem; }
+  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 0.75rem 1rem; background: var(--charcoal); gap: 0.75rem; }
   .mobile-sticky a, .mobile-sticky button { flex: 1; padding: 0.85rem; text-align: center; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 4px; cursor: pointer; font-family: 'DM Sans', sans-serif; border: none; }
   .sticky-call { background: var(--cream); color: var(--charcoal); }
   .sticky-pay { background: var(--gold); color: var(--charcoal); }
@@ -227,6 +228,8 @@
     .mobile-sticky { display: flex; }
     body { padding-bottom: 70px; }
     .hero-actions .btn-primary { display: none; }
+    #ebooks { padding: 5rem 1.5rem; }
+    #ebooks .ebook-grid { grid-template-columns: 1fr !important; }
   }
 
   @media (max-width: 480px) {
@@ -243,27 +246,27 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Ghar<span>kalpana</span></a>
-<ul class="nav-links">
-  <li><a href="#services">Services</a></li>
-  <li><a href="#process">Process</a></li>
-  <li><a href="#gallery">Gallery</a></li>
-  <li><a href="#pricing">Pricing</a></li>
-  <li><a href="#ebooks">Ebooks</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
-
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#ebooks">Ebooks</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
   <button class="nav-cta" onclick="openPayment()">Book Consultation ₹999</button>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- MOBILE MENU DRAWER -->
+<!-- MOBILE MENU DRAWER — Ebooks added here -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services" onclick="closeMenu()">Services</a>
   <a href="#process" onclick="closeMenu()">Process</a>
   <a href="#gallery" onclick="closeMenu()">Gallery</a>
   <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#ebooks" class="mobile-ebook-link" onclick="closeMenu()">✦ Ebooks</a>
   <a href="#about" onclick="closeMenu()">About</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
   <button class="mobile-cta nav-cta" onclick="closeMenu(); openPayment()">Book Consultation ₹999</button>
@@ -383,28 +386,32 @@
     </div>
   </div>
 </section>
-  <section id="ebooks" style="padding: 6rem 4rem; background: #FDFAF6;">
+
+<!-- EBOOKS -->
+<section id="ebooks" style="padding: 6rem 4rem; background: #FDFAF6;">
   <div class="section-tag">Digital Products</div>
   <h2 class="section-title">Our <em>Ebooks</em></h2>
-
-  <div style="margin-top: 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
-    
+  <div class="ebook-grid" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
     <div style="border:1px solid rgba(0,0,0,0.1); padding:1.5rem; background:white;">
-      <h3 style="font-family:'Cormorant Garamond', serif;">The Newly Wed Home Guide 1</h3>
-      <p style="font-size:0.9rem; color:#6B6560;">How to design home with space and functionality.</p>
-      <a href="https://forms.gle/YWqbSB3zqwQjPgGDA" style="display:inline-block;margin-top:1rem;padding:0.5rem 1rem;background:black;color:white;text-decoration:none;">Download</a>
+      <h3 style="font-family:'Cormorant Garamond', serif; font-size:1.3rem; margin-bottom:0.5rem;">The Newly Wed Home Guide</h3>
+      <p style="font-size:0.9rem; color:#6B6560; margin-bottom:0.5rem;">How to design your home with space, functionality and budget.</p>
+      <p style="font-size:1.1rem; font-weight:600; color:var(--gold); margin-bottom:1rem;">₹199</p>
+      <a href="https://forms.gle/YWqbSB3zqwQjPgGDA" target="_blank" style="display:inline-block;padding:0.6rem 1.2rem;background:var(--charcoal);color:white;text-decoration:none;font-size:0.82rem;letter-spacing:0.05em;">Buy Now →</a>
     </div>
-
     <div style="border:1px solid rgba(0,0,0,0.1); padding:1.5rem; background:white;">
-      <h3 style="font-family:'Cormorant Garamond', serif;">Moodboards</h3>
-      <p style="font-size:0.9rem; color:#6B6560;">30 visual moodboards</p>
-      <a href="https://forms.gle/YWqbSB3zqwQjPgGDA" style="display:inline-block;margin-top:1rem;padding:0.5rem 1rem;background:black;color:white;text-decoration:none;">Download</a>
+      <h3 style="font-family:'Cormorant Garamond', serif; font-size:1.3rem; margin-bottom:0.5rem;">30 Home Mood Boards</h3>
+      <p style="font-size:0.9rem; color:#6B6560; margin-bottom:0.5rem;">Complete design inspiration across 6 styles for every room.</p>
+      <p style="font-size:1.1rem; font-weight:600; color:var(--gold); margin-bottom:1rem;">₹199</p>
+      <a href="https://forms.gle/YWqbSB3zqwQjPgGDA" target="_blank" style="display:inline-block;padding:0.6rem 1.2rem;background:var(--charcoal);color:white;text-decoration:none;font-size:0.82rem;letter-spacing:0.05em;">Buy Now →</a>
     </div>
-
-
+    <div style="border:1px solid rgba(0,0,0,0.1); padding:1.5rem; background:white;">
+      <h3 style="font-family:'Cormorant Garamond', serif; font-size:1.3rem; margin-bottom:0.5rem;">30 Visual Mood Boards</h3>
+      <p style="font-size:0.9rem; color:#6B6560; margin-bottom:0.5rem;">Wall colours, furniture, curtains, lamps and accessories for every room.</p>
+      <p style="font-size:1.1rem; font-weight:600; color:var(--gold); margin-bottom:1rem;">₹199</p>
+      <a href="https://forms.gle/YWqbSB3zqwQjPgGDA" target="_blank" style="display:inline-block;padding:0.6rem 1.2rem;background:var(--charcoal);color:white;text-decoration:none;font-size:0.82rem;letter-spacing:0.05em;">Buy Now →</a>
+    </div>
   </div>
 </section>
-
 
 <!-- CONTACT -->
 <div id="contact" class="cta-section">
@@ -447,29 +454,13 @@
   <div class="popup-box">
     <h3>Book Consultation</h3>
     <p>Pay ₹999 to confirm your slot</p>
-
-    <!-- QR Code pointing to your real UPI ID -->
-    <img
-      class="popup-qr"
-      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3D9634114569%40hdfcbank%26pn%3DMAYANK%2520BHARADWAJ%26am%3D499%26cu%3DINR"
-      alt="Scan to Pay ₹999"
-    >
-
-    <!-- Direct UPI deep link — opens any UPI app on mobile -->
-    <a
-      href="upi://pay?pa=9634114569@hdfcbank&pn=MAYANK%20BHARADWAJ&am=999&cu=INR"
-      class="popup-upi-btn"
-      id="upiBtn"
-    >
-      Pay ₹999 via UPI App
-    </a>
-
+    <img class="popup-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3D9634114569%40hdfcbank%26pn%3DMAYANK%2520BHARADWAJ%26am%3D999%26cu%3DINR" alt="Scan to Pay ₹999">
+    <a href="upi://pay?pa=9634114569@hdfcbank&pn=MAYANK%20BHARADWAJ&am=999&cu=INR" class="popup-upi-btn" id="upiBtn">Pay ₹999 via UPI App</a>
     <p class="popup-note">
       Works with GPay, PhonePe, Paytm, BHIM &amp; all UPI apps.<br>
       After payment send screenshot on WhatsApp:<br>
       <strong>+91 9997016015</strong>
     </p>
-
     <button class="popup-close" onclick="closePayment()">Close</button>
   </div>
 </div>
@@ -487,18 +478,13 @@ function closePayment() {
 document.getElementById('paymentPopup').addEventListener('click', function(e) {
   if (e.target === this) closePayment();
 });
-
-// On mobile, try to open UPI app directly — skip popup
 document.querySelectorAll('[onclick="openPayment()"]').forEach(btn => {
   btn.addEventListener('click', function(e) {
     const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
     if (isMobile) {
       e.stopImmediatePropagation();
-      window.location.href = 'upi://pay?pa=9634114569@hdfcbank&pn=MAYANK%20BHARADWAJ&am=499&cu=INR';
-      // If UPI app doesn't open in 1.5s, show the popup as fallback
-      setTimeout(() => {
-        openPayment();
-      }, 1500);
+      window.location.href = 'upi://pay?pa=9634114569@hdfcbank&pn=MAYANK%20BHARADWAJ&am=999&cu=INR';
+      setTimeout(() => { openPayment(); }, 1500);
     }
   });
 });
