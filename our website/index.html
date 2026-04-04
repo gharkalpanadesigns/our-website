@@ -21,15 +21,31 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); overflow-x: hidden; }
 
+  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 4rem; display: flex; align-items: center; justify-content: space-between; background: rgba(253,250,246,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--charcoal); text-decoration: none; }
   .nav-logo span { color: var(--gold); }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold); }
-  .nav-cta { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--charcoal); color: var(--cream); padding: 0.6rem 1.5rem; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+  .nav-cta { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--charcoal); color: var(--cream); padding: 0.6rem 1.5rem; border-radius: 2px; text-decoration: none; transition: background 0.2s; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; }
   .nav-cta:hover { background: var(--gold); }
 
+  /* MOBILE HAMBURGER */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE MENU DRAWER */
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--warm-white); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 1.4rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .mobile-cta { background: var(--charcoal); color: var(--cream) !important; padding: 1rem 2.5rem; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem !important; cursor: pointer; }
+
+  /* HERO */
   .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; }
   .hero-left { padding: 8rem 4rem 6rem; display: flex; flex-direction: column; justify-content: center; }
   .hero-tag { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
@@ -38,7 +54,7 @@
   .hero-title em { font-style: italic; color: var(--gold); }
   .hero-subtitle { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 420px; margin-bottom: 2.5rem; font-weight: 300; }
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-  .btn-primary { background: var(--charcoal); color: var(--cream); padding: 0.9rem 2rem; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .btn-primary { background: var(--charcoal); color: var(--cream); padding: 0.9rem 2rem; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; font-family: 'DM Sans', sans-serif; cursor: pointer; border: none; }
   .btn-primary:hover { background: var(--gold); }
   .btn-ghost { color: var(--charcoal); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
   .btn-ghost:hover { color: var(--gold); }
@@ -53,6 +69,7 @@
   .hero-right-overlay p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--charcoal); line-height: 1.5; }
   .hero-right-overlay span { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.5rem; display: block; }
 
+  /* MARQUEE */
   .marquee-wrap { background: var(--charcoal); overflow: hidden; padding: 1rem 0; }
   .marquee-track { display: flex; gap: 3rem; white-space: nowrap; animation: marquee 20s linear infinite; }
   .marquee-track span { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); flex-shrink: 0; }
@@ -65,6 +82,7 @@
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.2; color: var(--charcoal); }
   .section-title em { font-style: italic; color: var(--gold); }
 
+  /* SERVICES */
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 4rem; background: var(--border); }
   .service-card { background: var(--warm-white); padding: 2.5rem 2rem; transition: background 0.3s; position: relative; overflow: hidden; }
   .service-card:hover { background: var(--cream); }
@@ -74,6 +92,7 @@
   .service-line { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
   .service-card:hover .service-line { transform: scaleX(1); }
 
+  /* PROCESS */
   .process { background: var(--charcoal); color: var(--cream); }
   .process .section-tag { color: var(--gold-light); }
   .process .section-tag::before { background: var(--gold-light); }
@@ -87,6 +106,7 @@
   .step-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.5rem; }
   .step-desc { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.7; font-weight: 300; }
 
+  /* GALLERY */
   .gallery { background: var(--warm-white); padding-bottom: 3rem; }
   .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
   .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4px; }
@@ -102,6 +122,7 @@
   .gallery-more { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 4px; }
   .gallery-more .gallery-item { aspect-ratio: 4/3; }
 
+  /* PRICING */
   .pricing { background: var(--cream); }
   .pricing-intro { max-width: 540px; margin-bottom: 4rem; }
   .pricing-intro p { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-top: 1rem; font-weight: 300; }
@@ -123,6 +144,7 @@
   .pricing-features li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; flex-shrink: 0; }
   .featured-badge { position: absolute; top: -1px; right: 1.5rem; background: var(--gold); color: var(--cream); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.75rem; }
 
+  /* TRUST */
   .trust { background: var(--cream); }
   .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
   .trust-content .section-title { margin-bottom: 1.5rem; }
@@ -136,6 +158,7 @@
   .cert-tag { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--border); padding: 0.5rem 1rem; font-size: 0.78rem; color: var(--text-muted); margin-top: 1rem; }
   .cert-tag::before { content: '✦'; color: var(--gold); font-size: 0.7rem; }
 
+  /* CTA */
   .cta-section { background: var(--charcoal); padding: 7rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
   .cta-left .section-tag { color: var(--gold-light); }
   .cta-left .section-tag::before { background: var(--gold-light); }
@@ -150,22 +173,49 @@
   .form-cta-btn:hover { background: var(--gold-light); }
   .form-note { font-size: 0.75rem; color: rgba(255,255,255,0.25); margin-top: 1rem; text-align: center; }
 
-  footer { background: #111110; padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.5); text-decoration: none; }
-  .footer-logo span { color: var(--gold); }
-  footer p { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+  /* FOOTER */
+  footer { text-align: center; padding: 2rem 4rem; background: #111110; color: white; border-top: 1px solid rgba(255,255,255,0.06); }
+  footer p { font-size: 0.75rem; color: rgba(255,255,255,0.25); margin-bottom: 6px; }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
 
+  /* PAYMENT POPUP */
+  .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center; padding: 1rem; }
+  .popup-overlay.active { display: flex; }
+  .popup-box { background: white; padding: 2rem 1.5rem; max-width: 360px; width: 100%; text-align: center; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+  .popup-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--charcoal); margin-bottom: 6px; }
+  .popup-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.2rem; }
+  .popup-qr { width: 200px; height: 200px; margin: 0 auto 1rem; border: 8px solid var(--cream); border-radius: 8px; display: block; }
+  .popup-upi-btn { display: block; background: var(--charcoal); color: white; padding: 1rem; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; margin: 1rem 0 0.5rem; transition: background 0.2s; }
+  .popup-upi-btn:hover { background: var(--gold); }
+  .popup-note { font-size: 0.78rem; color: var(--text-muted); margin: 0.75rem 0; line-height: 1.6; }
+  .popup-close { margin-top: 1rem; padding: 0.6rem 1.5rem; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--text-muted); }
+  .popup-close:hover { background: var(--border); }
+
+  /* MOBILE STICKY BOTTOM CTA */
+  .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 0.75rem 1rem; background: var(--charcoal); display: flex; gap: 0.75rem; }
+  .mobile-sticky a, .mobile-sticky button { flex: 1; padding: 0.85rem; text-align: center; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 4px; cursor: pointer; font-family: 'DM Sans', sans-serif; border: none; }
+  .sticky-call { background: var(--cream); color: var(--charcoal); }
+  .sticky-pay { background: var(--gold); color: var(--charcoal); }
+
+  /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .hero-left > * { animation: fadeUp 0.7s ease both; }
   .hero-tag { animation-delay: 0.1s; } .hero-title { animation-delay: 0.25s; } .hero-subtitle { animation-delay: 0.4s; } .hero-actions { animation-delay: 0.5s; } .hero-stats { animation-delay: 0.6s; }
 
+  /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; } .nav-links, .nav-cta { display: none; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
     section { padding: 5rem 1.5rem; }
     .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 6rem 1.5rem 3rem; } .hero-right { min-height: 400px; }
+    .hero-left { padding: 6rem 1.5rem 3rem; }
+    .hero-right { min-height: 320px; }
     .trust-grid, .cta-section { grid-template-columns: 1fr; gap: 3rem; }
-    .services-grid, .process-steps { grid-template-columns: 1fr 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .process-steps::before { display: none; }
     .pricing-grid { grid-template-columns: 1fr 1fr; }
     .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -173,13 +223,24 @@
     .gallery-more { grid-template-columns: repeat(2, 1fr); }
     .gallery-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .trust-metrics { grid-template-columns: 1fr 1fr; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+    .mobile-sticky { display: flex; }
+    body { padding-bottom: 70px; }
+    .hero-actions .btn-primary { display: none; }
   }
-  
+
+  @media (max-width: 480px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .trust-metrics { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .process-steps { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Ghar<span>kalpana</span></a>
   <ul class="nav-links">
@@ -189,26 +250,34 @@
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#about">About</a></li>
   </ul>
-  <a href="upi://pay?pa=9634114569@hdfcbank&pn=MAYANK%20BHARADWAJ&am=499&cu=INR" class="nav-cta">
-  Book Consultation ₹499
-</a>
-
+  <button class="nav-cta" onclick="openPayment()">Book Consultation ₹499</button>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<!-- MOBILE MENU DRAWER -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#process" onclick="closeMenu()">Process</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <button class="mobile-cta nav-cta" onclick="closeMenu(); openPayment()">Book Consultation ₹499</button>
+</div>
+
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-left">
     <div class="hero-tag">Dream Home Design Partnership</div>
     <h1 class="hero-title">Transform your house into your <em>reality home</em></h1>
     <p class="hero-subtitle">Certified interior designer specializing in space optimization, 3D visualization, and complete end-to-end home design — from first consultation to final execution.</p>
     <div class="hero-actions">
-      <a href="upi://pay?pa=9634114569@hdfcbank&pn=MAYANK%20BHARADWAJ&am=499&cu=INR" class="nav-cta">
-  Book Consultation ₹499
-</a>
-
+      <button class="btn-primary" onclick="openPayment()">Book Consultation ₹499</button>
       <a href="#gallery" class="btn-ghost">View our work</a>
     </div>
     <div class="hero-stats">
-      
       <div><div class="stat-num">100%</div><div class="stat-label">Client satisfaction</div></div>
       <div><div class="stat-num">3D</div><div class="stat-label">Visualization included</div></div>
     </div>
@@ -222,12 +291,14 @@
   </div>
 </section>
 
+<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="accent">Space Optimization</span><span>✦</span><span>3D Visualization</span><span>✦</span><span class="accent">Budget Planning</span><span>✦</span><span>Contractor Management</span><span>✦</span><span class="accent">Material Selection</span><span>✦</span><span>Full Home Design</span><span>✦</span><span class="accent">Newly Wed Specialists</span><span>✦</span><span>Certified Designer</span><span>✦</span><span class="accent">Space Optimization</span><span>✦</span><span>3D Visualization</span><span>✦</span><span class="accent">Budget Planning</span><span>✦</span><span>Contractor Management</span><span>✦</span><span class="accent">Material Selection</span><span>✦</span><span>Full Home Design</span><span>✦</span><span class="accent">Newly Wed Specialists</span><span>✦</span><span>Certified Designer</span><span>✦</span>
   </div>
 </div>
 
+<!-- SERVICES -->
 <section id="services">
   <div class="section-tag">What we do</div>
   <h2 class="section-title">Everything your home <em>needs</em></h2>
@@ -241,6 +312,7 @@
   </div>
 </section>
 
+<!-- PROCESS -->
 <section id="process" class="process">
   <div class="section-tag">How we work</div>
   <h2 class="section-title">Your home, <em>step by step</em></h2>
@@ -254,6 +326,7 @@
   </div>
 </section>
 
+<!-- GALLERY -->
 <section id="gallery" class="gallery">
   <div class="gallery-header">
     <div><div class="section-tag">Our work</div><h2 class="section-title">Spaces we have <em>transformed</em></h2></div>
@@ -275,6 +348,7 @@
   </div>
 </section>
 
+<!-- PRICING -->
 <section id="pricing" class="pricing">
   <div class="pricing-intro">
     <div class="section-tag">Investment</div>
@@ -289,6 +363,7 @@
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="trust">
   <div class="trust-grid">
     <div class="trust-content">
@@ -297,7 +372,6 @@
       <p>Most designers learn from textbooks. I learned by doing — designing my own home from scratch, fighting every budget battle, dealing with every contractor problem, and making every difficult decision you are about to make.</p>
       <p>That lived experience is what I bring to every client project. I don't just give you a beautiful design — I guide you through the entire process so you avoid every costly mistake I have already learned from.</p>
       <div class="trust-quote"><p>"You should not do work you are not specialized in. Call the expert, let them do their job perfectly — and get the result you deserve."</p></div>
-      <div class="cert-tag">Certified — Coloraza Design School</div>
     </div>
     <div class="trust-metrics">
       <div class="metric"><div class="metric-num">99%</div><div class="metric-label">Of DIY home designers make costly mistakes</div></div>
@@ -308,13 +382,15 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <div id="contact" class="cta-section">
   <div class="cta-left">
     <div class="section-tag">Get started</div>
     <h2 class="section-title">Let's design your <em>dream home</em></h2>
     <p>Tell us about your space and we will get back to you within 24 hours. First consultation is always free — we just want to see your home and show you what's possible.</p>
     <div class="contact-info">
-      <div class="contact-item">📞 <a href="tel:9997016015,9634114569">+91 9997016015,9634114569</a></div>
+      <div class="contact-item">📞 <a href="tel:9997016015">+91 9997016015</a></div>
+      <div class="contact-item">📞 <a href="tel:9634114569">+91 9634114569</a></div>
       <div class="contact-item">📍 NCR, UP</div>
     </div>
   </div>
@@ -325,50 +401,110 @@
   </div>
 </div>
 
-<footer style="text-align:center; padding:20px; background:#111; color:white;">
-  <p>© 2026 Gharkalpana Designs</p>
-  <p>
-    <a href="privacy.html" style="color:#C4933F;">Privacy Policy</a> |
-    <a href="terms.html" style="color:#C4933F;">Terms & Conditions</a> |
-    <a href="refund.html" style="color:#C4933F;">Refund Policy</a>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Gharkalpana Designs. All Rights Reserved.</p>
+  <p style="margin: 6px 0;">
+    <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+    <a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp;
+    <a href="refund.html">Refund Policy</a>
   </p>
-  <p>Email: gharkalpanadesigns@gmail.com</p>
-  <p>Location: NCR, India</p>
+  <p>Email: gharkalpanadesigns@gmail.com &nbsp;|&nbsp; NCR, India</p>
 </footer>
-<!-- MOBILE STICKY CTA -->
+
+<!-- MOBILE STICKY BOTTOM BAR -->
+<div class="mobile-sticky">
+  <a href="tel:9997016015" class="sticky-call">📞 Call Now</a>
+  <button class="sticky-pay" onclick="openPayment()">Book Consult ₹499</button>
+</div>
+
 <!-- PAYMENT POPUP -->
-<div id="paymentPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:10000; align-items:center; justify-content:center;">
-  <div style="background:white; padding:25px; max-width:340px; text-align:center; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
-    <h3 style="margin-bottom:8px;">Pay ₹499 for Consultation</h3>
-    <p style="color:#555; margin-bottom:15px;">Scan QR or click below to pay instantly</p>
-    
-    <!-- QR Code -->
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=YOUR_REAL_UPI_ID_HERE@oksbi&pn=MAYANK%20BHARADWAJ&am=499&cu=INR" alt="UPI QR Code" style="margin:10px 0; border:8px solid #f8f1e3; border-radius:8px;">
-    
-    <a href="upi://pay?pa=YOUR_REAL_UPI_ID_HERE@oksbi&pn=MAYANK%20BHARADWAJ&am=499&cu=INR"
-       style="display:block; background:#1C1C1A; color:white; padding:14px; text-decoration:none; border-radius:6px; font-weight:600; margin:15px 0;">
-       Pay ₹499 Now via UPI
+<div class="popup-overlay" id="paymentPopup">
+  <div class="popup-box">
+    <h3>Book Consultation</h3>
+    <p>Pay ₹499 to confirm your slot</p>
+
+    <!-- QR Code pointing to your real UPI ID -->
+    <img
+      class="popup-qr"
+      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3D9634114569%40hdfcbank%26pn%3DMAYANK%2520BHARADWAJ%26am%3D499%26cu%3DINR"
+      alt="Scan to Pay ₹499"
+    >
+
+    <!-- Direct UPI deep link — opens any UPI app on mobile -->
+    <a
+      href="upi://pay?pa=9634114569@hdfcbank&pn=MAYANK%20BHARADWAJ&am=499&cu=INR"
+      class="popup-upi-btn"
+      id="upiBtn"
+    >
+      Pay ₹499 via UPI App
     </a>
-    
-    <p style="font-size:13px; color:#666; margin-top:10px;">
-      After payment, send screenshot on WhatsApp<br>
-      <strong>9997016015</strong>
+
+    <p class="popup-note">
+      Works with GPay, PhonePe, Paytm, BHIM &amp; all UPI apps.<br>
+      After payment send screenshot on WhatsApp:<br>
+      <strong>+91 9997016015</strong>
     </p>
-    
-    <button onclick="closePayment()" style="margin-top:15px; padding:8px 20px; background:#ddd; border:none; border-radius:6px; cursor:pointer;">
-      Close
-    </button>
+
+    <button class="popup-close" onclick="closePayment()">Close</button>
   </div>
 </div>
 
 <script>
+// PAYMENT POPUP
+function openPayment() {
+  document.getElementById('paymentPopup').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closePayment() {
+  document.getElementById('paymentPopup').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('paymentPopup').addEventListener('click', function(e) {
+  if (e.target === this) closePayment();
+});
+
+// On mobile, try to open UPI app directly — skip popup
+document.querySelectorAll('[onclick="openPayment()"]').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+    if (isMobile) {
+      e.stopImmediatePropagation();
+      window.location.href = 'upi://pay?pa=9634114569@hdfcbank&pn=MAYANK%20BHARADWAJ&am=499&cu=INR';
+      // If UPI app doesn't open in 1.5s, show the popup as fallback
+      setTimeout(() => {
+        openPayment();
+      }, 1500);
+    }
+  });
+});
+
+// MOBILE MENU
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const burger = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  burger.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// SCROLL ANIMATIONS
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.service-card, .pricing-card, .process-step, .metric').forEach(el => {
-  el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
